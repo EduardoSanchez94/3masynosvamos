@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>cantidad de trabajos con salario mayor</title>
+</head>
+<body>
+<h2>Lista locaciones</h2>
+
+<table class="table table-sm">
+    <tr>
+        <th>#</th>
+        <th>Nombre de la compañia</th>
+        <th>Teléfono</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="jo, info : ${listaCantidadEmpleados}">
+        <td th:text="${info.index + 1}"></td>
+        <td th:text="${jo.titulo }"></td>
+        <td th:text="${jo.maximosalario }"></td>
+        <td th:text="${jo.minimosalario}"></td>
+
+    </tr>
+</table>
+
+
+
+
+
+</body>
+</html>

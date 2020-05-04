@@ -3,12 +3,14 @@ package com.example.prelab3.Entity;
 import com.sun.istack.Nullable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-@Table
+@Entity
+@Table(name = "countries")
 public class countries {
     @Id
+    @Column(name = "country_id")
     private String country_id;
     @Column(name = "country_name", nullable = false)
     private String country_name;

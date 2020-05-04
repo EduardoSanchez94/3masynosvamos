@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Lista de Empleados</title>
+</head>
+<body>
+<div class="p-3 mb-2 bg-secondary text-white" align="center"><h1>Lista de Jobs</h1></div>
+
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre y apellido</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Numero Celular</th>
+        <th scope="col">Fecha de contratación</th>
+        <th scope="col">Trabajo</th>
+        <th scope="col">Salario</th>
+        <th scope="col">Manager</th>
+        <th></th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="e,i:${listaEmployee}">
+        <th th:text="${i.index+1}" scope="col"></th>
+        <th scope="col" th:text="${e.getFirstName() + e.getLastName()}"></th>
+        <th scope="col" th:text="${e.getEmail()}"></th>
+        <th scope="col" th:text="${e.getPhoneNumber()}"></th>
+        <th scope="col" th:text="${e.getHireDate()}"></th>
+        <th scope="col" th:text="${e.jobs.getJob_title()}"></th>
+        <th scope="col" th:text="${e.getSalary()}"></th>
+        <th scope="col" th:text="${e.getCommissionPct()}"></th>
+
+
+        <td>
+            <a class="btn btn-primary" >Editar Employee</a>
+        </td>
+        <td>
+            <a class="btn btn-danger" >Borrar Employee </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

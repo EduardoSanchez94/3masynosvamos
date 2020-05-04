@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Lista de Departamentos</title>
+</head>
+<body>
+<div class="container">
+    <h1>Lista Departamentos</h1>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/departments/new'}">Nuevo Departamento</a>
+
+    <form method="post" th:action="@{/departments/buscarTransportista}">
+        <input name="company" class="form-control mb-3" type="text" placeholder="buscar" >
+    </form>
+
+    <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Manager</th>
+            <th>Location</th>
+            <th>short name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="depa : ${lista}">
+            <td th:text="${depa.departmentname}"></td>
+            <td th:text="${depa.managerId}"></td>
+            <td th:text="${depa.location.getStreetaddress()}"></td>
+            <td th:text="${depa.departmentshortname}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/product/edit' + '?id=' + ${depa.department_id}}">Editar</a>
+            </td>
+            <td><a class="btn btn-danger" th:href="@{'/product/delete' + '?id=' + ${depa.department_id}}">Borrar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

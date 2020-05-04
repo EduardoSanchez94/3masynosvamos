@@ -16,6 +16,14 @@ public class Location {
 
     @Column(name = "postal_code")
     private String postalcode;
+
+    @Column(name = "city", nullable = false)
     private String city;
+    @Column(name = "state_province")
     private String stateprovince;
+
+    
+
+
+
 }

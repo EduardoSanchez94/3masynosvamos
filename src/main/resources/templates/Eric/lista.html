@@ -28,7 +28,7 @@
         <tr th:each="depa : ${lista}">
             <td th:text="${depa.department_name}"></td>
             <td th:text="${depa.managerId}"></td>
-            <td th:text="${depa.locationId}"></td>
+            <td th:text="${depa.location.getStreetaddress()}"></td>
             <td th:text="${depa.departmentshortname}"></td>
             <td><a class="btn btn-primary" th:href="@{'/product/edit' + '?id=' + ${depa.department_id}}">Editar</a>
             </td>

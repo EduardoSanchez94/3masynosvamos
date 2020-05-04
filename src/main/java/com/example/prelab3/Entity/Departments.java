@@ -13,8 +13,9 @@ public class Departments {
     private String department_name;
     @Column(name = "manager_id")
     private String managerId;
-    @Column(name = "location_id")
-    private int locationId;
+    @ManyToOne
+    @JoinColumn(name = "location_id")
+    private Location location;
     @Column(name = "department_short_name")
     private String departmentshortname;
 
@@ -42,12 +43,12 @@ public class Departments {
         this.managerId = managerId;
     }
 
-    public int getLocationId() {
-        return locationId;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setLocationId(int locationId) {
-        this.locationId = locationId;
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public String getDepartmentshortname() {

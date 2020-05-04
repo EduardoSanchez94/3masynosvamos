@@ -29,4 +29,13 @@ public class EmployeeController {
         return "Gabriel/listaEmployee";
     }
 
+
+
+    @GetMapping(value = {"/EmpleadoPais"})
+    public String obtenerEmpleadosEnSuPais(Model model) {
+
+        model.addAttribute("listaEmpleadosEnSuPais", employeeRepository.obtenerEmpleadosEnSuPais());
+        return "Gabriel/EmpleadoPais";
+    }
+
 }

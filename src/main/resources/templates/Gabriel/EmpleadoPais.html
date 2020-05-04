@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>dTO</title>
+</head>
+<body>
+<div class="p-3 mb-2 bg-secondary text-white" align="center"><h1>Lista de empleados con paises</h1></div>
+
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Nombre y apellido</th>
+        <th scope="col">Pais</th>
+
+        <th></th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ep:${listaEmpleadosEnSuPais}">
+
+        <th scope="col" th:text="${ep.getPrimerNombre()}"></th>
+        <th scope="col" th:text="${ep.getApellido()}"></th>
+        <th scope="col" th:text="${ep.getNombrePais()}"></th>
+
+
+
+
+
+        <td>
+            <a class="btn btn-primary" >Editar Employee</a>
+        </td>
+        <td>
+            <a class="btn btn-danger" >Borrar Employee </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

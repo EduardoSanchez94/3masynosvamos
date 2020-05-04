@@ -6,7 +6,7 @@
     <title>Lista de Empleados</title>
 </head>
 <body>
-<div class="p-3 mb-2 bg-secondary text-white" align="center"><h1>Lista de Jobs</h1></div>
+<div class="p-3 mb-2 bg-secondary text-white" align="center"><h1>Lista de Empleados</h1></div>
 
 
 
@@ -36,6 +36,10 @@
         <th scope="col" th:text="${e.jobs.getJob_title()}"></th>
         <th scope="col" th:text="${e.getSalary()}"></th>
         <th scope="col" th:text="${e.getCommissionPct()}"></th>
+
+        <th scope="col" th:if="${e.manager != null}" th:text="${e.manager.getFirstName()}"></th>
+
+
 
 
         <td>

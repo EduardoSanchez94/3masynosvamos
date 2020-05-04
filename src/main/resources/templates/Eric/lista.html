@@ -13,8 +13,16 @@
     <h1>Lista Departamentos</h1>
     <a class="btn btn-primary mt-4 mb-4" th:href="@{'/departments/new'}">Nuevo Departamento</a>
 
-    <form method="post" th:action="@{/departments/buscarTransportista}">
+    <form method="post" th:action="@{/departments/buscarDepartment}">
         <input name="company" class="form-control mb-3" type="text" placeholder="buscar" >
+    </form>
+
+    <form method="post" th:action="@{/departments/cantidadDepartmentbyLocation}">
+        <input name="cantidad" class="form-control mb-3" type="text" placeholder="buscar por location" >
+    </form>
+
+    <form method="post" th:action="@{/departments/DepartmentbyCountry}">
+        <input name="name" class="form-control mb-3" type="text" placeholder="buscar por nombre country" >
     </form>
 
     <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>

@@ -4,6 +4,8 @@ import com.example.prelab3.Entity.Departments;
 import com.example.prelab3.Entity.Location;
 import com.example.prelab3.Repository.DepartmentsRepository;
 import com.example.prelab3.Repository.LocationRepository;
+import com.example.prelab3.dtos.DepartamentosPorLocation;
+import com.example.prelab3.dtos.DepartmentbyCountryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,8 +37,8 @@ public class DepartmentsController {
         return "Eric/lista" ;}
 
 
-    @PostMapping("buscarTransportista")
-    public String buscarTransportista (Model model, @RequestParam("company") String company) {
+    @PostMapping("buscarDepartment")
+    public String buscarDepartment(Model model, @RequestParam("company") String company) {
 
         List<Departments> byDepartmentname = departmentsRepository.findByDepartmentname(company);
 
@@ -44,6 +46,23 @@ public class DepartmentsController {
         return "Eric/lista";
     }
 
+    @PostMapping("cantidadDepartmentbyLocation")
+    public String cantidadDepartment(Model model, @RequestParam("cantidad") String name){
+
+        List<DepartamentosPorLocation> byDepaxLoca = departmentsRepository.findByDepaxLoca(name);
+        model.addAttribute("cantidad", byDepaxLoca);
+
+        return "Eric/cantidadDepartment";
+    }
+
+    @PostMapping("DepartmentbyCountry")
+    public String DepartmentbyCountry(Model model, @RequestParam("name") String name){
+
+        List<DepartmentbyCountryDto> DepaxLoca = departmentsRepository.findByDepartmentbyCountry(name);
+        model.addAttribute("cantidad", DepaxLoca);
+
+        return "Eric/DepartmentByCountry";
+    }
 
 
 

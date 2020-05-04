@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Pagina Principal</title>
+</head>
+<body>
+<div class="p-3 mb-2 bg-secondary text-white" align="center"><h1>Lista de Jobs</h1></div>
+
+
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Job_ID</th>
+        <th scope="col">Job_Title</th>
+        <th scope="col">Min Salary</th>
+        <th scope="col">Max Salary</th>
+        <th></th>
+        <th></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="j,i:${lista}">
+        <th th:text="${i.index+1}" scope="col"></th>
+        <th scope="col" th:text="${j.job_id}"></th>
+        <th scope="col" th:text="${j.job_title}"></th>
+        <th scope="col" th:text="${j.min_salary}"></th>
+        <th scope="col" th:text="${j.max_salary}"></th>
+
+        <td>
+            <a class="btn btn-primary" >Editar Jobs</a>
+        </td>
+        <td>
+            <a class="btn btn-danger" >Borrar Jobs </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

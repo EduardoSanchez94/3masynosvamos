@@ -2,10 +2,8 @@ package com.example.prelab3.Entity;
 
 import com.sun.istack.Nullable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 @Entity
 @Table(name = "countries")
 public class countries {
@@ -14,8 +12,18 @@ public class countries {
     private String country_id;
     @Column(name = "country_name", nullable = false)
     private String country_name;
-    @Column(name = "region_id", nullable = false)
-    private float region_id;
+
+    @ManyToOne
+    @JoinColumn(name = "region_id" )
+    private region region;
+
+    public com.example.prelab3.Entity.region getRegion() {
+        return region;
+    }
+
+    public void setRegion(com.example.prelab3.Entity.region region) {
+        this.region = region;
+    }
 
     public String getCountry_id() {
         return country_id;
@@ -33,11 +41,5 @@ public class countries {
         this.country_name = country_name;
     }
 
-    public float getRegion_id() {
-        return region_id;
-    }
 
-    public void setRegion_id(float region_id) {
-        this.region_id = region_id;
-    }
 }

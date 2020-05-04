@@ -19,6 +19,7 @@ target/
 !.idea/encodings.xml
 !.idea/misc.xml
 !.idea/modules.xml
+*.iml
 
 ### NetBeans ###
 /nbproject/private/

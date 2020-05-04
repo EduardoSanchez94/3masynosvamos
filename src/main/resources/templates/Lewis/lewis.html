@@ -27,7 +27,7 @@
         <th th:text="${i.index+1}" scope="col"></th>
         <th scope="col" th:text="${co.country_id}"></th>
         <th scope="col" th:text="${co.country_name}"></th>
-        <th scope="col" th:text="${co.region_id}"></th>
+        <th scope="col" th:text="${co.region.region_name}"></th>
 
         <th><a class="btn btn-primary" th:href="@{'/editarD'+'?id='+${co.country_id}}">Editar Departamento</a></th>
         <th><a class="btn btn-danger" th:href="@{'/borrarD'+'?id='+${co.country_id}}" >Borrar Departamento</a></th>

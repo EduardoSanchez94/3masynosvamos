@@ -12,6 +12,11 @@
 <div class="container">
     <h1>Lista Departamentos</h1>
     <a class="btn btn-primary mt-4 mb-4" th:href="@{'/departments/new'}">Nuevo Departamento</a>
+
+    <form method="post" th:action="@{/departments/buscarTransportista}">
+        <input name="company" class="form-control mb-3" type="text" placeholder="buscar" >
+    </form>
+
     <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
     <table class="table">
         <thead>
@@ -26,7 +31,7 @@
         </thead>
         <tbody>
         <tr th:each="depa : ${lista}">
-            <td th:text="${depa.department_name}"></td>
+            <td th:text="${depa.departmentname}"></td>
             <td th:text="${depa.managerId}"></td>
             <td th:text="${depa.location.getStreetaddress()}"></td>
             <td th:text="${depa.departmentshortname}"></td>

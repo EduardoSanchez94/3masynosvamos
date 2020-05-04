@@ -10,7 +10,7 @@ public class Departments {
     @Column(name = "department_id", nullable = false)
     private int department_id;
     @Column(name = "department_name", nullable = false)
-    private String department_name;
+    private String departmentname;
     @Column(name = "manager_id")
     private String managerId;
     @ManyToOne
@@ -27,12 +27,12 @@ public class Departments {
         this.department_id = department_id;
     }
 
-    public String getDepartment_name() {
-        return department_name;
+    public String getDepartmentname() {
+        return departmentname;
     }
 
-    public void setDepartment_name(String department_name) {
-        this.department_name = department_name;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
     }
 
     public String getManagerId() {

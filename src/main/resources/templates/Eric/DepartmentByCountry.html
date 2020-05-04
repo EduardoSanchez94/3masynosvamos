@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Lista de Departamentos</title>
+</head>
+<body>
+<div class="container">
+    <h1>Lista Departamentos</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>País</th>
+            <th>Departamento</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="depa : ${cantidad}">
+            <td th:text="${depa.nombrecountry}"></td>
+            <td th:text="${depa.nombredepartamento}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
